@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using EjercicioPasanteHexacta;
+using EjercicioPasante.Models;
+using System.Formats.Tar;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,8 +41,20 @@ app.MapGet("/dbconexion", async ([FromServices] AppPersonasContext dbContext) =>
 
 app.MapGet("/api/personas", async ([FromServices] AppPersonasContext dbContext) =>
 {
-
+    return Results.Ok(dbContext.Personas.Where(persona => persona.Nombre.Contains("")));
 });
+
+app.MapPost("/api/personas", async ([FromServices] AppPersonasContext dbContext, [FromBody] Persona persona) =>
+{
+    persona.PersonaId = Guid.NewGuid();
+
+    await dbContext.Personas.AddAsync(persona);
+
+    await dbContext.SaveChangesAsync();
+
+    return Results.Ok("Persona ingresada correctamente");
+});
+
 
 app.Run();
 
