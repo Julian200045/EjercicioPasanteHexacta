@@ -3,14 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using EjercicioPasanteHexacta;
 using EjercicioPasante.Models;
 using System.Formats.Tar;
+using EjercicioPasanteHexacta.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Servicios
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSqlServer<AppPersonasContext>(builder.Configuration.GetConnectionString("AppPersonasDbCs"));
+
+builder.Services.AddScoped<IPersonaService, PersonaService>();
 
 var app = builder.Build();
 
@@ -32,28 +35,28 @@ app.MapControllerRoute(
 
 app.MapFallbackToFile("index.html");
 
-app.MapGet("/dbconexion", async ([FromServices] AppPersonasContext dbContext) =>
-{
-    dbContext.Database.EnsureCreated();
-    return Results.Ok("Database created");
+//app.MapGet("/dbconexion", async ([FromServices] AppPersonasContext dbContext) =>
+//{
+//    dbContext.Database.EnsureCreated();
+//    return Results.Ok("Database created");
 
-});
+//});
 
-app.MapGet("/api/personas", async ([FromServices] AppPersonasContext dbContext) =>
-{
-    return Results.Ok(dbContext.Personas.Where(persona => persona.Nombre.Contains("")));
-});
+//app.MapGet("/api/personas", async ([FromServices] AppPersonasContext dbContext) =>
+//{
+//    return Results.Ok(dbContext.Personas.Where(persona => persona.Nombre.Contains("")));
+//});
 
-app.MapPost("/api/personas", async ([FromServices] AppPersonasContext dbContext, [FromBody] Persona persona) =>
-{
-    persona.PersonaId = Guid.NewGuid();
+//app.MapPost("/api/personas", async ([FromServices] AppPersonasContext dbContext, [FromBody] Persona persona) =>
+//{
+//    persona.PersonaId = Guid.NewGuid();
 
-    await dbContext.Personas.AddAsync(persona);
+//    await dbContext.Personas.AddAsync(persona);
 
-    await dbContext.SaveChangesAsync();
+//    await dbContext.SaveChangesAsync();
 
-    return Results.Ok("Persona ingresada correctamente");
-});
+//    return Results.Ok("Persona ingresada correctamente");
+//});
 
 
 app.Run();
