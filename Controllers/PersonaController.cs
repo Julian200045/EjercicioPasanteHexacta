@@ -23,9 +23,9 @@ namespace EjercicioPasanteHexacta.Controllers
         }
 
         [HttpGet] 
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] string? nombre="", [FromQuery] string? apellido = "")
         {
-            return Ok(personaService.Get());
+            return Ok(personaService.Get(nombre, apellido));
         }
 
         [HttpPost]

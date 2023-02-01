@@ -1,4 +1,5 @@
 ﻿using EjercicioPasante.Models;
+using System.Runtime.CompilerServices;
 
 namespace EjercicioPasanteHexacta.Services
 {
@@ -11,9 +12,9 @@ namespace EjercicioPasanteHexacta.Services
             context = dbcontext;
         }
 
-        public IEnumerable<Persona> Get()
+        public IEnumerable<Persona> Get(string nombre, string apellido)
         {
-            return context.Personas;
+            return context.Personas.Where(persona => persona.Nombre.Contains(nombre) && persona.Apellido.Contains(apellido));
         }
 
         public async Task Save(Persona persona)
@@ -25,7 +26,7 @@ namespace EjercicioPasanteHexacta.Services
 
     public interface IPersonaService
     {
-        IEnumerable<Persona> Get();
+        IEnumerable<Persona> Get(string nombre, string apellido);
 
         Task Save(Persona persona);
     }
