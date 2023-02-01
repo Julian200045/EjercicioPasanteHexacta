@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EjercicioPasante.Models;
 
@@ -18,19 +19,18 @@ public class Persona
     [Required]
     public int Edad { get; set; }
 
-    [Required]
-    public GrupoEtario GrupoEtario { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+    public GrupoEtario GrupoEtario{ get; set; }
 
     [Required]
     public EstadoCivil EstadoCivil { get; set; }
 
-    public Persona(Guid personaId,string nombre, string apellido, int edad, GrupoEtario grupoEtario, EstadoCivil estadoCivil)
+    public Persona(Guid personaId,string nombre, string apellido, int edad, EstadoCivil estadoCivil)
     {
         this.PersonaId = personaId;
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Edad = edad;
-        this.GrupoEtario= grupoEtario;
         this.EstadoCivil= estadoCivil;
     }
 }
