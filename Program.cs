@@ -34,12 +34,22 @@ app.MapControllerRoute(
 
 app.MapFallbackToFile("index.html");
 
+
 app.MapGet("/dbconexion", async ([FromServices] AppPersonasContext dbContext) =>
 {
     dbContext.Database.EnsureCreated();
-    return Results.Ok("Database created");
+    return Results.Ok("Table created");
 
 });
+
+
+app.MapGet("/prueba", async ([FromServices] AppPersonasContext dbContext) =>
+{
+    return Results.Ok("CASE " + "ELSE Otro END;");
+});
+
+
+
 
 
 app.Run();

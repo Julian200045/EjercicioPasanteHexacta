@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
+import { PersonaListComponent } from './personaList/personaList.component'
+import { PersonaComponent } from './persona/persona.component'
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { CounterComponent } from './counter/counter.component';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
+    PersonaListComponent,
+    PersonaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

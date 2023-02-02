@@ -20,7 +20,7 @@ public class Persona
     public int Edad { get; set; }
 
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    public GrupoEtario GrupoEtario{ get; set; }
+    public GrupoEtario GrupoEtario { get; set; }
 
     [Required]
     public EstadoCivil EstadoCivil { get; set; }

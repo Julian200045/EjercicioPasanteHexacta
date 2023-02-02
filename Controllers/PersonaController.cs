@@ -2,6 +2,8 @@
 using EjercicioPasanteHexacta.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace EjercicioPasanteHexacta.Controllers
 {
@@ -26,6 +28,7 @@ namespace EjercicioPasanteHexacta.Controllers
         public IActionResult Get([FromQuery] string? nombre="", [FromQuery] string? apellido = "")
         {
             return Ok(personaService.Get(nombre, apellido));
+            
         }
 
         [HttpPost]
