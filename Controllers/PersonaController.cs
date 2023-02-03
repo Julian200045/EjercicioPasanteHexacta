@@ -1,5 +1,6 @@
 ﻿using EjercicioPasante.Models;
 using EjercicioPasanteHexacta.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -24,6 +25,7 @@ namespace EjercicioPasanteHexacta.Controllers
 
         }
 
+        [EnableCors]
         [HttpGet] 
         public IActionResult Get([FromQuery] string? nombre="", [FromQuery] string? apellido = "")
         {
@@ -31,6 +33,7 @@ namespace EjercicioPasanteHexacta.Controllers
             
         }
 
+        [EnableCors]
         [HttpPost]
         public IActionResult Post([FromBody] Persona persona)
         {

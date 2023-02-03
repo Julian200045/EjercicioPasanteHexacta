@@ -27,6 +27,7 @@ import { PersonaComponent } from './persona/persona.component'
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
+      { path: 'personas', component: PersonaListComponent }
     ])
   ],
   providers: [],

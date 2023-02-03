@@ -5,6 +5,8 @@ using EjercicioPasante.Models;
 using System.Formats.Tar;
 using EjercicioPasanteHexacta.Services;
 
+var AllowSpecificOrigins = "_AllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Servicios
@@ -14,6 +16,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSqlServer<AppPersonasContext>(builder.Configuration.GetConnectionString("AppPersonasDbCs"));
 
 builder.Services.AddScoped<IPersonaService, PersonaService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("https://localhost:44462");
+                      });
+});
 
 var app = builder.Build();
 
@@ -27,6 +38,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors(AllowSpecificOrigins);
 
 app.MapControllerRoute(
     name: "default",
