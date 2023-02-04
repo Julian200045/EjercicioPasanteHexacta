@@ -1,9 +1,8 @@
-<!--
-<mat-table class="personas-table mat-elevation-z8" [dataSource]="listPersonas">
+<mat-table [dataSource]="listPersonas" class="personas-table mat-elevation-z8">
 
     <ng-container matColumnDef="nombre">
         <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
-        <div *matCellDef="let persona">{{persona.nombre}}</div>
+        <mat-cell *matCellDef="let persona">{{persona.nombre}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="apellido">
@@ -38,9 +37,10 @@
         </mat-cell>
     </ng-container>
 
-    <<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
 </mat-table>
--->
+
