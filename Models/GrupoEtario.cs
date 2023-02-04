@@ -1,4 +1,4 @@
-namespace EjercicioPasante.Models;
+namespace EjercicioPasanteHexacta.Models;
 
 public class GrupoEtario
 {

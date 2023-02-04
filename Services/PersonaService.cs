@@ -1,4 +1,4 @@
-﻿using EjercicioPasante.Models;
+﻿using EjercicioPasanteHexacta.Models;
 using System.Runtime.CompilerServices;
 
 namespace EjercicioPasanteHexacta.Services

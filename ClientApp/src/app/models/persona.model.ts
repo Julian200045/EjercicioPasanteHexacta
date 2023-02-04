@@ -1,5 +1,4 @@
 export interface Persona {
-  personaId: string;
   nombre: string;
   apellido: string;
   edad: number;

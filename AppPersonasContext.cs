@@ -1,4 +1,4 @@
-﻿using EjercicioPasante.Models;
+﻿using EjercicioPasanteHexacta.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;

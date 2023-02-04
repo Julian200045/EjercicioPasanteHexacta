@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { Persona } from '../../models/persona.model'
 import { PersonaService } from '../../services/persona.service'
 
@@ -10,11 +10,13 @@ export class PersonaListComponent {
 
   public listPersonas: Persona[] = [];
 
+  public displayedColumns = ["nombre", "apellido", "edad","grupoEtario","estadoCivil"];
+
   constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
     this.personaService.getPersonas("", "").subscribe(data => {
-      console.log(data)
+      this.listPersonas = data;
     })
   }
 

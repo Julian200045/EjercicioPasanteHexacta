@@ -1,9 +1,10 @@
+using EjercicioPasanteHexacta.ViewModels;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EjercicioPasante.Models;
+namespace EjercicioPasanteHexacta.Models;
 
-public class Persona
+    public class Persona
 {
     [Key]
     public Guid PersonaId { get; set; }
@@ -27,10 +28,12 @@ public class Persona
 
     public Persona(Guid personaId,string nombre, string apellido, int edad, EstadoCivil estadoCivil)
     {
-        this.PersonaId = personaId;
-        this.Nombre = nombre;
-        this.Apellido = apellido;
-        this.Edad = edad;
-        this.EstadoCivil= estadoCivil;
+        PersonaId = personaId;
+        Nombre = nombre;
+        Apellido = apellido;
+        Edad = edad;
+        EstadoCivil = estadoCivil;
     }
+
+    //public static explicit operator PersonaView(Persona persona) => new PersonaView(persona);
 }

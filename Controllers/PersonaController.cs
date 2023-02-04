@@ -1,10 +1,7 @@
-﻿using EjercicioPasante.Models;
+﻿using EjercicioPasanteHexacta.Models;
 using EjercicioPasanteHexacta.Services;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
+using EjercicioPasanteHexacta.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace EjercicioPasanteHexacta.Controllers
 {
@@ -16,8 +13,6 @@ namespace EjercicioPasanteHexacta.Controllers
 
         private readonly ILogger<PersonaController> _logger;
 
-        //private static List<Persona> ListPersona = new List<Persona>(); //borrar
-
         public PersonaController(ILogger<PersonaController> logger,IPersonaService service) {
             
             _logger = logger;
@@ -25,15 +20,16 @@ namespace EjercicioPasanteHexacta.Controllers
 
         }
 
-        [EnableCors]
         [HttpGet] 
         public IActionResult Get([FromQuery] string? nombre="", [FromQuery] string? apellido = "")
         {
-            return Ok(personaService.Get(nombre, apellido));
-            
+
+            IEnumerable<PersonaView> personasViews = personaService.Get(nombre, apellido).Select(persona => (PersonaView) persona);
+
+            return Ok(personasViews);
+
         }
 
-        [EnableCors]
         [HttpPost]
         public IActionResult Post([FromBody] Persona persona)
         {

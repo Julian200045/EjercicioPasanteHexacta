@@ -1,7 +1,46 @@
-<div class="personaList--grid">
+<!--
+<mat-table class="personas-table mat-elevation-z8" [dataSource]="listPersonas">
 
-    <div>Nombre     Apellido    Edad    Grupo Etario    Estado Civil</div>
-    <ul>
-        <app-persona [persona]="persona" *ngFor="let persona of listPersonas"></app-persona>
-    </ul>
-</div>
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+        <div *matCellDef="let persona">{{persona.nombre}}</div>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+        <mat-header-cell *matHeaderCellDef>Apellido</mat-header-cell>
+        <mat-cell class="description-cell"
+                  *matCellDef="let persona">
+            {{persona.apellido}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edad">
+        <mat-header-cell *matHeaderCellDef>Edad</mat-header-cell>
+        <mat-cell class="edad-cell"
+                  *matCellDef="let persona">
+            {{persona.edad}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="grupoEtario">
+        <mat-header-cell *matHeaderCellDef>Grupo Etario</mat-header-cell>
+        <mat-cell class="grupoEtario-cell"
+                  *matCellDef="let persona">
+            {{persona.grupoEtario}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="estadoCivil">
+        <mat-header-cell *matHeaderCellDef>Estado Civil</mat-header-cell>
+        <mat-cell class="estadoCivil-cell"
+                  *matCellDef="let persona">
+            {{persona.estadoCivil}}
+        </mat-cell>
+    </ng-container>
+
+    <<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
+-->

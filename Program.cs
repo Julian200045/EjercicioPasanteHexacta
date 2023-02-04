@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using EjercicioPasanteHexacta;
-using EjercicioPasante.Models;
-using System.Formats.Tar;
+using EjercicioPasanteHexacta.Models;
 using EjercicioPasanteHexacta.Services;
 
 var AllowSpecificOrigins = "_AllowSpecificOrigins";
@@ -53,16 +52,6 @@ app.MapGet("/dbconexion", async ([FromServices] AppPersonasContext dbContext) =>
     return Results.Ok("Table created");
 
 });
-
-
-app.MapGet("/prueba", async ([FromServices] AppPersonasContext dbContext) =>
-{
-    return Results.Ok("CASE " + "ELSE Otro END;");
-});
-
-
-
-
 
 app.Run();
 

@@ -8,7 +8,6 @@ import {Persona } from '../../models/persona.model'
 export class PersonaComponent implements OnInit, OnChanges{
 
   @Input() persona: Persona = {
-    personaId: "",
     nombre: "",
     apellido: "",
     edad: 0,

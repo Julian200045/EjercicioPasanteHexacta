@@ -16,8 +16,6 @@ export class PersonaService {
 
     const url = environment.baseUrl + '/api/persona';
 
-    console.log(url)
-
     let params = new HttpParams
     params.append("nombre", nombre);
     params.append("apellido", apellido);
