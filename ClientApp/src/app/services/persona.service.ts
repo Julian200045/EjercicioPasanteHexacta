@@ -12,6 +12,8 @@ export class PersonaService {
     private http: HttpClient,
   ) { }
 
+  //DRY todo
+
   getPersonas(nombre: string, apellido: string) {
 
     const url = environment.baseUrl + '/api/persona';
@@ -21,5 +23,12 @@ export class PersonaService {
     params.append("apellido", apellido);
 
     return this.http.get<Persona[]>(url, { params:params })
+  }
+
+  postPersona(persona: any) {
+
+    const url = environment.baseUrl + '/api/persona';
+
+    return this.http.post<Persona[]>(url, persona)
   }
 }

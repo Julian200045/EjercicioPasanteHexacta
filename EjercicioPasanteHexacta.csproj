@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\components\addPersonaForm.ts" />
     <None Remove="ClientApp\src\app\models\persona.model.ts" />
   </ItemGroup>
 

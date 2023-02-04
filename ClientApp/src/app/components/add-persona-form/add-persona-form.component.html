@@ -1,0 +1,18 @@
+<div>
+  <h3>Agregar persona</h3>
+  <form #addPersonaForm="ngForm" (ngSubmit)="onPersonaAdd(addPersonaForm.value)">
+    <label>Nombre</label>
+    <input type="text" name="pNombre" ngModel>
+
+    <label>Apellido</label>
+    <input type="text" name="pApellido" ngModel>
+
+    <label>Edad</label>
+    <input type="number" name="pEdad" ngModel>
+
+    <label>Estado Civil</label>
+    <input type="text" name="pEstadoCvil" ngModel>
+
+    <input type="submit" value="Añadir Persona">
+  </form>
+</div>

@@ -3,8 +3,8 @@ import { Persona } from '../../models/persona.model'
 import { PersonaService } from '../../services/persona.service'
 
 @Component({
-  selector: 'app-personaList',
-  templateUrl: './personaList.component.html'
+  selector: 'app-persona-list',
+  templateUrl: './persona-list.component.html'
 })
 export class PersonaListComponent {
 
