@@ -1,3 +1,4 @@
+using EjercicioPasanteHexacta.DTOS;
 using EjercicioPasanteHexacta.ViewModels;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,7 @@ namespace EjercicioPasanteHexacta.Models;
     public class Persona
 {
     [Key]
-    public Guid PersonaId { get; set; }
+    public Guid PersonaId { get; set; } = Guid.NewGuid();
 
     [Required]
     [MaxLength(255)]
@@ -26,14 +27,13 @@ namespace EjercicioPasanteHexacta.Models;
     [Required]
     public EstadoCivil EstadoCivil { get; set; }
 
-    public Persona(Guid personaId,string nombre, string apellido, int edad, EstadoCivil estadoCivil)
+    public Persona(string nombre, string apellido, int edad, EstadoCivil estadoCivil)
     {
-        PersonaId = personaId;
         Nombre = nombre;
         Apellido = apellido;
         Edad = edad;
         EstadoCivil = estadoCivil;
     }
 
-    //public static explicit operator PersonaView(Persona persona) => new PersonaView(persona);
+    static public explicit operator Persona(PersonaDTO dto) => new Persona(dto.Nombre, dto.Apellido, dto.Edad, Enum.Parse<EstadoCivil>(dto.EstadoCivil)); //Ver TryParse TODO
 }

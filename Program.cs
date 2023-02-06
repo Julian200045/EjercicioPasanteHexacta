@@ -4,7 +4,7 @@ using EjercicioPasanteHexacta;
 using EjercicioPasanteHexacta.Models;
 using EjercicioPasanteHexacta.Services;
 
-var AllowSpecificOrigins = "_AllowSpecificOrigins";
+var AllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +21,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: AllowSpecificOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("https://localhost:44462");
+                          builder.WithOrigins("https://localhost:44462").
+                          AllowAnyMethod()
+                          .AllowAnyHeader();
                       });
 });
 

@@ -32,10 +32,12 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\components\addPersonaForm.ts" />
     <None Remove="ClientApp\src\app\models\persona.model.ts" />
+    <None Remove="ClientApp\src\file.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\persona.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\dtos\persona.dto.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

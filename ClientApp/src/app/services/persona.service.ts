@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core'
 import { Persona } from '../models/persona.model'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { environment } from '../../environments/environment'
+import { PersonaDTO } from '../dtos/persona.dto';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,10 +27,16 @@ export class PersonaService {
     return this.http.get<Persona[]>(url, { params:params })
   }
 
-  postPersona(persona: any) {
+  handleError() {
+    console.log("Error al hacer el post")
+  }
+
+  postPersona(personadto: PersonaDTO) {
 
     const url = environment.baseUrl + '/api/persona';
 
-    return this.http.post<Persona[]>(url, persona)
+    console.log(personadto)
+
+    return this.http.post<PersonaDTO>(url, personadto);
   }
 }

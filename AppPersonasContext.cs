@@ -40,12 +40,12 @@ namespace EjercicioPasanteHexacta
 
             List<Persona> personasInit = new List<Persona>();
 
-            personasInit.Add(new Persona(Guid.Parse("b98490f4-fdcd-4185-95dc-8dc2be5063c1"), "Julian", "Carretto", 22, EstadoCivil.Soltero));
-            personasInit.Add(new Persona(Guid.Parse("b98490f4-fdcd-4185-95dc-8dc2be5063c2"), "Camila", "Carretto", 24, EstadoCivil.Soltero));
-            personasInit.Add(new Persona(Guid.Parse("b98490f4-fdcd-4185-95dc-8dc2be5063c3"), "Valeria", "Chanquia", 22, EstadoCivil.Soltero));
-            personasInit.Add(new Persona(Guid.Parse("b98490f4-fdcd-4185-95dc-8dc2be5063c4"), "Pepe", "Argento", 8, EstadoCivil.Soltero));
-            personasInit.Add(new Persona(Guid.Parse("b98490f4-fdcd-4185-95dc-8dc2be5063c5"), "Claudio", "Chavez", 12, EstadoCivil.Soltero));
-            personasInit.Add(new Persona(Guid.Parse("b98490f4-fdcd-4185-95dc-8dc2be5063c6"), "Jorge", "Perez", 80, EstadoCivil.Soltero));
+            personasInit.Add(new Persona( "Julian", "Carretto", 22, EstadoCivil.Soltero));
+            personasInit.Add(new Persona( "Camila", "Carretto", 24, EstadoCivil.Soltero));
+            personasInit.Add(new Persona( "Valeria", "Chanquia", 22, EstadoCivil.Soltero));
+            personasInit.Add(new Persona( "Pepe", "Argento", 8, EstadoCivil.Soltero));
+            personasInit.Add(new Persona("Claudio", "Chavez", 12, EstadoCivil.Soltero));
+            personasInit.Add(new Persona("Jorge", "Perez", 80, EstadoCivil.Soltero));
 
             modelBuilder.Entity<Persona>(persona =>
             {

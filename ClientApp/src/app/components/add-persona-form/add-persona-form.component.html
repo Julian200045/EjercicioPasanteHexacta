@@ -1,18 +1,23 @@
 <div>
-  <h3>Agregar persona</h3>
-  <form #addPersonaForm="ngForm" (ngSubmit)="onPersonaAdd(addPersonaForm.value)">
-    <label>Nombre</label>
-    <input type="text" name="pNombre" ngModel>
+    <h3>Agregar persona</h3>
+    <form #addPersonaForm="ngForm" (ngSubmit)="onPersonaAdd(addPersonaForm.value)" id="addPersonaFormId">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="pNombre" ngModel class="form-control" id="nombre" required>
 
-    <label>Apellido</label>
-    <input type="text" name="pApellido" ngModel>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="pApellido" ngModel class="form-control" id="apellido" required>
 
-    <label>Edad</label>
-    <input type="number" name="pEdad" ngModel>
+        <label for="edad">Edad</label>
+        <input type="number" name="pEdad" ngModel class="form-control" id="edad" required>
 
-    <label>Estado Civil</label>
-    <input type="text" name="pEstadoCvil" ngModel>
 
-    <input type="submit" value="Añadir Persona">
-  </form>
+        <label for="estadoC">Estado Civil</label>
+        <select class="form-control" id="estadoC" required form="addPersonaFormId" name="pEstadoCivil" ngModel>
+            <option *ngFor="let estadoC of estadosCiviles" [value]="estadoC" >{{estadoC}}</option>
+        </select>
+
+        <input type="submit" value="Agregar Persona">
+
+    </form>
 </div>
+
