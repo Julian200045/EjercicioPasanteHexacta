@@ -35,6 +35,7 @@ export class PersonaService {
 
     const url = environment.baseUrl + '/api/persona';
 
+    console.log("Estoy en el servicio")
     console.log(personadto)
 
     return this.http.post<PersonaDTO>(url, personadto);
