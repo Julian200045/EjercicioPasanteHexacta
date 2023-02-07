@@ -41,6 +41,9 @@
             <div *ngIf="reactiveForm.get('edad').errors?.['required']">
                 <span style="color : red">La edad es requerida.</span>
             </div>
+            <div *ngIf="reactiveForm.get('edad').errors?.['min']">
+                <span style="color : red">La edad debe ser positiva.</span>
+            </div>
         </div>
 
 

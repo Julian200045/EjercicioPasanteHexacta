@@ -7,6 +7,15 @@ a.navbar-brand {
 html {
   font-size: 14px;
 }
+
+a {
+  font-size: 14px;
+
+}
+
+.nav-item{
+    margin-left: 20px
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;

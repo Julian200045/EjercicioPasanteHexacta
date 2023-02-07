@@ -3,8 +3,16 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
 /* Provide sufficient contrast against white background */
+p{
+   font-size: 1.2em
+}
+
 a {
   color: #0366d6;
+}
+
+li{
+    font-size: 1.3em
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {

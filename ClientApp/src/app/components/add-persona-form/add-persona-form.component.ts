@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { scheduled } from 'rxjs';
 import { PersonaDTO } from '../../dtos/persona.dto';
 import { PersonaService } from '../../services/persona.service';
 
@@ -12,31 +13,27 @@ export class AddPersonaFormComponent implements OnInit {
 
   estadosCiviles = ['Soltero','Casado','Separado','Divorciado','Viudo'] //Posiblemente lo mande el back TODO
 
-  submitted = false;
-
   reactiveForm: FormGroup;
-
-  
 
   constructor(private personaService: PersonaService) {
 
   }
 
-  onSubmit() {
-    this.submitted = true
-  }
-
-
   onPersonaAdd()
   {
 
-    console.log(this.reactiveForm.value)
+    if (this.reactiveForm.invalid) {
+      return;
+    }
+
+    alert("Persona agregada con éxito")
 
     let dto = new PersonaDTO(this.reactiveForm.value.nombre, this.reactiveForm.value.apellido, this.reactiveForm.value.edad, this.reactiveForm.value.estadoCivil);
 
     this.personaService.postPersona(dto).subscribe(data => data);
-  }
 
+    this.reactiveForm.reset();
+  }
 
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
