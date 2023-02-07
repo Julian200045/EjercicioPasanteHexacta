@@ -17,10 +17,10 @@ namespace EjercicioPasanteHexacta.Services
             return context.Personas.Where(persona => persona.Nombre.Contains(nombre) && persona.Apellido.Contains(apellido));
         }
 
-        public async Task Save(Persona persona)
+        public void Save(Persona persona)
         {
             context.Add(persona);
-            context.SaveChanges(); //hacer async? TODO
+            context.SaveChanges(); //lo correcto sería await context.SaveChangesAsync(); pero surgieron problemas al realizar varias requests 
         }
     }
 
@@ -28,7 +28,7 @@ namespace EjercicioPasanteHexacta.Services
     {
         IEnumerable<Persona> Get(string nombre, string apellido);
 
-        Task Save(Persona persona);
+        void Save(Persona persona);
     }
 }
 

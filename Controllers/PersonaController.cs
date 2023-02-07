@@ -14,28 +14,49 @@ namespace EjercicioPasanteHexacta.Controllers
 
         private readonly ILogger<PersonaController> _logger;
 
-        public PersonaController(ILogger<PersonaController> logger,IPersonaService service) {
-            
+        public PersonaController(ILogger<PersonaController> logger, IPersonaService service) {
+
             _logger = logger;
             personaService = service;
 
         }
 
-        [HttpGet] 
-        public IActionResult Get([FromQuery] string? nombre="", [FromQuery] string? apellido = "")
+        [HttpGet]
+        public IActionResult Get([FromQuery] string? nombre = "", [FromQuery] string? apellido = "")
         {
 
-            IEnumerable<PersonaView> personasViews = personaService.Get(nombre, apellido).Select(persona => (PersonaView) persona);
+            try
+            {
+                IEnumerable<PersonaView> personasViews = personaService.Get(nombre, apellido).Select(persona => (PersonaView)persona);
 
-            return Ok(personasViews);
+                return Ok(personasViews);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Datos obtenidos inválidos");
+            }
 
         }
 
         [HttpPost]
 
-        public IActionResult Post([FromBody] PersonaDTO dto)
+        public IActionResult Post(PersonaDTO dto)
         {
-            personaService.Save( (Persona) dto);
+
+            if(dto.Edad < 0 || dto.Edad > 200)
+            {
+                return BadRequest("Edad fuera de rango, debe estar entre 0 y 200");
+            }
+
+            try
+            {
+                personaService.Save((Persona)dto);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest("Datos inválidos");
+            }
+
             return Ok();
         }
     }

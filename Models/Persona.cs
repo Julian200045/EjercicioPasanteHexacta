@@ -1,7 +1,7 @@
 using EjercicioPasanteHexacta.DTOS;
-using EjercicioPasanteHexacta.ViewModels;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace EjercicioPasanteHexacta.Models;
 
@@ -11,20 +11,25 @@ namespace EjercicioPasanteHexacta.Models;
     public Guid PersonaId { get; set; } = Guid.NewGuid();
 
     [Required]
-    [MaxLength(255)]
+    [DisallowNull]
+    [StringLength(100, ErrorMessage = "El nombre es demasiado largo")]
     public string Nombre { get; set; }
 
     [Required]
-    [MaxLength(255)]
+    [DisallowNull]
+    [StringLength(100, ErrorMessage = "El apellido es demasiado largo")]
     public string Apellido{ get; set; }
 
     [Required]
+    [DisallowNull]
+    [Range(0,200)]
     public int Edad { get; set; }
 
     [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
     public GrupoEtario GrupoEtario { get; set; }
 
     [Required]
+    [DisallowNull]
     public EstadoCivil EstadoCivil { get; set; }
 
     public Persona(string nombre, string apellido, int edad, EstadoCivil estadoCivil)

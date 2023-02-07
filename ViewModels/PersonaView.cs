@@ -10,9 +10,7 @@ namespace EjercicioPasanteHexacta.ViewModels
         public string GrupoEtario { get; set; }
         public string EstadoCivil { get; set; }
 
-
-        // posible refactor dependiendo request post
-        public PersonaView(string nombre,string apellido,int edad,string grupoEtario, string estadoCivil) {
+        public PersonaView(string nombre,string apellido,int edad, string estadoCivil,string grupoEtario) {
 
             this.Nombre = nombre;
             this.Apellido = apellido;
@@ -22,6 +20,6 @@ namespace EjercicioPasanteHexacta.ViewModels
             
         }
 
-        static public explicit operator PersonaView(Persona persona) => new PersonaView(persona.Nombre, persona.Apellido, persona.Edad, persona.GrupoEtario.Nombre, persona.EstadoCivil.ToString());
+        static public explicit operator PersonaView(Persona persona) => new PersonaView(persona.Nombre, persona.Apellido, persona.Edad, persona.EstadoCivil.ToString(), persona.GrupoEtario.Nombre);
     }
 }

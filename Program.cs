@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using EjercicioPasanteHexacta;
 using EjercicioPasanteHexacta.Models;
 using EjercicioPasanteHexacta.Services;
+using static System.Formats.Asn1.AsnWriter;
+using Microsoft.Extensions.Hosting;
 
 var AllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -29,7 +31,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseHsts();
@@ -47,13 +48,14 @@ app.MapControllerRoute(
 
 app.MapFallbackToFile("index.html");
 
-
-app.MapGet("/dbconexion", async ([FromServices] AppPersonasContext dbContext) =>
+using (var scope = app.Services.CreateScope())
 {
-    dbContext.Database.EnsureCreated();
-    return Results.Ok("Table created");
+    var services = scope.ServiceProvider;
 
-});
+    var context = services.GetRequiredService<AppPersonasContext>();
+
+    context.Database.EnsureCreated();
+}
 
 app.Run();
 

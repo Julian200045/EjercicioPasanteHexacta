@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { scheduled } from 'rxjs';
 import { PersonaDTO } from '../../dtos/persona.dto';
 import { PersonaService } from '../../services/persona.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-add-persona-form',
@@ -26,7 +27,11 @@ export class AddPersonaFormComponent implements OnInit {
       return;
     }
 
-    alert("Persona agregada con éxito")
+    Swal.fire(
+      'Persona agregada!',
+      '',
+      'success'
+    )
 
     let dto = new PersonaDTO(this.reactiveForm.value.nombre, this.reactiveForm.value.apellido, this.reactiveForm.value.edad, this.reactiveForm.value.estadoCivil);
 
