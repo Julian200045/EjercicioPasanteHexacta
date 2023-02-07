@@ -3,18 +3,29 @@
     flex-direction: column
 }
 
-@media screen and (min-width: 40em) and (max-width:63.9 em){
-    .personaList--grid{
-        display:grid;
-        grid-template-columns:repeat(1,1fr);
-        grid-gap:15px
-    }
+.form-container {
+  margin: 20px;
+  max-width: 300px
 }
 
-@media screen and (min-width: 40em) and (max-width:63.9 em) {
-  .personaList--grid {
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-gap: 15px
-  }
+.form {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  max-width: 250px;
+  margin-top: 5px;
+  margin-left: 5px
+}
+
+.form-control-label {
+  margin-top: 8px;
+  margin-right: 0px
+}
+
+.submit-form {
+  margin-top: 20px;
+  align-self: center
 }
