@@ -20,9 +20,11 @@ export class PersonaService {
 
     const url = environment.baseUrl + '/api/persona';
 
-    let params = new HttpParams
-    params.append("nombre", nombre);
-    params.append("apellido", apellido);
+    let params = new HttpParams;
+    params = params.append("nombre", nombre);
+    params = params.append("apellido", apellido);
+
+    console.log("En el servicio: \n nombre = "+ nombre + "\t apellido = " + apellido)
 
     return this.http.get<Persona[]>(url, { params:params })
   }
@@ -32,11 +34,8 @@ export class PersonaService {
   }
 
   postPersona(personadto: PersonaDTO) {
-
+    
     const url = environment.baseUrl + '/api/persona';
-
-    console.log("Estoy en el servicio")
-    console.log(personadto)
 
     return this.http.post<PersonaDTO>(url, personadto);
   }

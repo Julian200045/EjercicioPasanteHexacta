@@ -20,7 +20,7 @@ namespace EjercicioPasanteHexacta.Services
         public async Task Save(Persona persona)
         {
             context.Add(persona);
-            await context.SaveChangesAsync();
+            context.SaveChanges(); //hacer async? TODO
         }
     }
 

@@ -1,3 +1,13 @@
+<form class="form" #getPersonaForm="ngForm" (ngSubmit)="onGetPersonas()" id="getPersonaFormId" [formGroup]="filterForm">
+    <label class="form-control-label" for="nombre">Nombre</label>
+    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre">
+
+    <label class="form-control-label" for="apellido">Apellido</label>
+    <input type="text" class="form-control" id="apellido" formControlName="apellido" placeholder="Apellido">
+
+    <input class="submit-form" type="submit" value="Buscar">
+</form>
+
 <mat-table [dataSource]="listPersonas" class="personas-table mat-elevation-z8">
 
     <ng-container matColumnDef="nombre">
