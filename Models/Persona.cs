@@ -40,5 +40,5 @@ namespace EjercicioPasanteHexacta.Models;
         EstadoCivil = estadoCivil;
     }
 
-    static public explicit operator Persona(PersonaDTO dto) => new Persona(dto.Nombre, dto.Apellido, dto.Edad, Enum.Parse<EstadoCivil>(dto.EstadoCivil)); //Ver TryParse TODO
+    static public explicit operator Persona(PersonaDTO dto) => new Persona(dto.Nombre, dto.Apellido, dto.Edad, Enum.Parse<EstadoCivil>(dto.EstadoCivil));
 }

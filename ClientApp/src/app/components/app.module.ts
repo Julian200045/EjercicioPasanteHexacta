@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { PersonaListComponent } from './persona-list/persona-list.component'
-import { PersonaComponent } from './persona/persona.component'
 import { AddPersonaFormComponent } from './add-persona-form/add-persona-form.component'
 
 @NgModule({
@@ -18,7 +17,6 @@ import { AddPersonaFormComponent } from './add-persona-form/add-persona-form.com
     NavMenuComponent,
     HomeComponent,
     PersonaListComponent,
-    PersonaComponent,
     AddPersonaFormComponent
   ],
   imports: [

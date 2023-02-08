@@ -12,7 +12,7 @@ import Swal from 'sweetalert2'
 })
 export class AddPersonaFormComponent implements OnInit {
 
-  estadosCiviles = ['Soltero','Casado','Separado','Divorciado','Viudo'] //Posiblemente lo mande el back TODO
+  estadosCiviles = ['Soltero','Casado','Separado','Divorciado','Viudo'] 
 
   reactiveForm: FormGroup;
 

@@ -14,29 +14,20 @@ export class PersonaService {
     private http: HttpClient,
   ) { }
 
-  //DRY todo
+  url = environment.baseUrl + '/api/persona';
 
   getPersonas(nombre: string, apellido: string) {
-
-    const url = environment.baseUrl + '/api/persona';
 
     let params = new HttpParams;
     params = params.append("nombre", nombre);
     params = params.append("apellido", apellido);
 
-    console.log("En el servicio: \n nombre = "+ nombre + "\t apellido = " + apellido)
-
-    return this.http.get<Persona[]>(url, { params:params })
+    return this.http.get<Persona[]>(this.url, { params:params })
   }
 
-  handleError() {
-    console.log("Error al hacer el post")
-  }
 
   postPersona(personadto: PersonaDTO) {
-    
-    const url = environment.baseUrl + '/api/persona';
 
-    return this.http.post<PersonaDTO>(url, personadto);
+    return this.http.post<PersonaDTO>(this.url, personadto);
   }
 }
